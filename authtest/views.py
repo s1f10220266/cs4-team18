@@ -21,6 +21,7 @@ def todo_list(request):
                 todo = form.save(commit=False)
                 todo.user = request.user
                 todo.save()
+                return redirect('todo_list')
 
         if 'delete_todo' in request.POST:  # アイテムの削除
             todo_id_to_delete = request.POST.get('delete_todo')

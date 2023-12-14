@@ -9,7 +9,9 @@
     <ul>
         {% for todo in todo_items %}
             <li>
-                {{ todo.title }}
+                {{ todo.title }} - {% if todo.completed %}Completed{% else %}Incomplete{% endif %}
+                {% if todo.due_date %} | Due: {{ todo.due_date }}{% endif %}
+                {% if todo.notes %} | Notes: {{ todo.notes }}{% endif %}
                 <form method="post" style="display: inline;">
                     {% csrf_token %}
                     <input type="hidden" name="delete_todo" value="{{ todo.id }}">
