@@ -1,0 +1,26 @@
+.inputArea {
+    font-size: 20px;
+    font-weight: bold;
+    border-bottom: 3px solid red;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+}
+
+table tr:nth-child(odd){
+    background-color: #eee;
+}
+
+table th {
+    border-bottom: 2px solid #fb5144;
+    padding: 10px 0;
+}
+
+table td {
+    border-bottom: #ddd;
+    padding: 10px 0;
+}
+

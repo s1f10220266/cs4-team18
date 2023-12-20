@@ -1,11 +1,61 @@
+{% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="ja">
+
 <head>
+    <meta charset="UTF-8">
+    <link href="{% static 'authtest/css/design.css' %}" rel="stylesheet">
     <title>ToDo List</title>
 </head>
+
 <body>
     <h1>ToDo List</h1>
     <p>Welcome, {{ user.username }}!</p>
+    
+    <form method="post" action="{% url 'todo_list' %}">
+        {% csrf_token %}
+        
+        <label for="titleInput" class="inputArea">Title:</label>
+        <p>
+            <input type="text" name="title" id="titleInput" placeholder="Input title...">
+        </p>
+
+        <label for="dueInput" class="inputArea">Due:</label>
+        <p>
+            <input type="date" name="due_date" id="dueInput">
+        </p>
+
+        <label for="memoInput" class="inputArea">Memo:</label>
+        <p>
+            <textarea name="notes" id="memoInput" placeholder="notes..."></textarea>
+        </p>
+            <button type="submit" name="add_todo">Add ToDo Item</button>
+    </form>
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Due</th>
+                <th>Notes</th>
+                <th>operation</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for todo in todo_items %}
+            <tr>
+            <td>{{ todo.title }}</td>
+            <td>{% if todo.due_date %}{{ todo.due_date }}{% endif %}</td>
+            <td>{% if todo.notes %}{{ todo.notes }}{% endif %}</td>
+            <td>Read | Edit | Delete</td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+<hr>
     <ul>
         {% for todo in todo_items %}
             <li>
@@ -20,11 +70,5 @@
             </li>
         {% endfor %}
     </ul>
-    
-    <form method="post" action="{% url 'todo_list' %}">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" name="add_todo">Add ToDo Item</button>
-    </form>
 </body>
 </html>
