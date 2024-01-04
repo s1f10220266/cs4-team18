@@ -1,22 +1,19 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
     <meta charset="UTF-8">
     <link href="{% static 'authtest/css/todo_design.css' %}" rel="stylesheet">
-    <title>ToDo List</title>
+    <title>TodoList</title>
 </head>
-
 <body>
     <div id="title">
         <div id="bar">
             <h1>ToDo List</h1>
-            <p class="user">User: {{ user.username }}! <a href="{% url 'home' %}">[ Home ]</a></p>
+            <p class="user">Hello! <a href="{% url 'home' %}">[ Home ]</a></p>
         </div>
     </div>
-    
-    <form method="post" action="{% url 'todo_list' %}">
+    <form method="post" action="{% url 'withoutLogin' %}">
         {% csrf_token %}
         
         <div class="zone">
@@ -63,13 +60,13 @@
         <tbody>
             {% for todo in todo_items %}
             <tr>
-            <td><a href="{% url 'detail' todo_id=todo.id %}">{{ todo.title }}</a></td>
+            <td>{{ todo.title }}</td>
             <td>{% if todo.due_date %}{{ todo.due_date }}{% endif %}</td>
             <td>{% if todo.notes %}{{ todo.notes }}{% endif %}</td>
             <td>
                 <form method="post" style="display: inline;">
                     {% csrf_token %}
-                    <input type="hidden" name="delete_todo" value="{{ todo.id }}">
+                    <input type="hidden" name="delete_todo" value="{{ forloop.counter0 }}">
                     <button type="submit">Delete</button>
                 </form>
             </td>
@@ -78,20 +75,5 @@
         </tbody>
 
     </table>
-<hr>
-    <ul>
-        {% for todo in todo_items %}
-            <li>
-                {{ todo.title }} - {% if todo.completed %}Completed{% else %}Incomplete{% endif %}
-                {% if todo.due_date %} | Due: {{ todo.due_date }}{% endif %}
-                {% if todo.notes %} | Notes: {{ todo.notes }}{% endif %}
-                <form method="post" style="display: inline;">
-                    {% csrf_token %}
-                    <input type="hidden" name="delete_todo" value="{{ todo.id }}">
-                    <button type="submit">Delete</button>
-                </form>
-            </li>
-        {% endfor %}
-    </ul>
 </body>
 </html>

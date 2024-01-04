@@ -1,0 +1,56 @@
+#title {
+    width: 100%;
+    border-bottom: 2px solid black;
+}
+
+.userArea {
+    text-align: center;
+}
+
+.userIdea {
+    font-weight: bold;
+    font-size: large;
+}
+
+
+
+#pageButton {
+    background-color: white;
+    width: 10%;
+    height: 10%;
+    margin: 1%;
+}
+
+#pageButton:hover {
+    background-color: blanchedalmond;
+}
+
+#logoutButton {
+    background-color: white;
+    width: 10%;
+    height: 10%;
+}
+
+#logoutButton:hover {
+    background-color: blanchedalmond;
+}
+
+#loginButton {
+    background-color: white;
+    width: 10%;
+    height: 10%;
+}
+
+#loginButton:hover {
+    background-color: blanchedalmond;
+}
+
+#withoutLoginButton {
+    background-color: white;
+    width: 10%;
+    height: 10%;
+}
+
+#withoutLoginButton:hover {
+    background-color: blanchedalmond;
+}

@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>Edit</title>
+        <link href="{% static 'authtest/css/edit_design.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        <div id="title">
+        <div class="bar">
+        <h1>Edit</h1>
+        <table>
+            <tr>
+                <td><a href="{% url 'todo_list' %}">Todo List</a></td>
+                <td><a href="{% url 'detail' todo_id=todo.id %}">Detail</a></td>
+            </tr>
+        </table>
+        </div>
+    </div>
+        <form method="post" action="{% url 'edit' todo_id=todo.id %}">
+            {% csrf_token %}
+            
+            <div class="red_under_bar">
+                <label for="titleInput" class="inputArea">Title:</label>
+            </div>
+                <div class="current">
+                <p>{{ todo.title }}</p>
+                </div>
+                <div class="inputPosition">
+                    <input type="text" name="title" id="titleBox" placeholder="{{ todo.title }}">
+                </div>
+            
+
+            <div class="red_under_bar">
+                <label for="dueInput" class="inputArea">Due:</label>
+            </div>
+                <div class="current">
+                <p>{{todo.due_date}}</p>
+                </div>
+                <div class="inputposition">
+                    <input type="date" name="due_date" id="dueBox">
+                </div>
+            
+            <div class="red_under_bar">
+                <label for="memoInput" class="inputArea">Memo:</label>
+            </div>
+                <div class="current">
+                <p>{{ todo.notes }}</p>
+                </div>
+                <div class="inputPosition">
+                    <textarea name="notes" id="textBox" placeholder="notes..."></textarea>
+                </div>
+                <div id="submitButtonPosition">
+                <button type="submit" name="edit_todo" id="submitButton">Add ToDo Item</button>
+                </div>
+        </form>
+    </body>
+</html>

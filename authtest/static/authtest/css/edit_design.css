@@ -1,0 +1,73 @@
+.bar {
+    display: flex;
+}
+#title {
+    border-bottom: 2px solid black;
+    width: 100%;
+}
+
+table {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    margin-top: 3%;
+}
+
+table td {
+    font-weight: bold;
+    font-size: large;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.red_under_bar {
+    width: 100px;
+    border-bottom: 2px solid red;
+}
+
+p {
+    font-size: large;
+    font-weight: bold;
+}
+
+
+.inputPosition {
+    text-align: center;
+    width: 30%;
+    padding-top: 3%;
+}
+
+#titleBox {
+    width: 30%;
+    height: 50px;
+}
+
+#dueBox {
+    width: 30%;
+    height: 30px;
+}
+
+#textBox {
+    resize: none;
+    width: 40%;
+    height: 40px;
+}
+
+.inputArea {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#submitButtonPosition {
+    padding-left: 30%;
+}
+#submitButton {
+    width: 15%;
+    height: 8%;
+    background-color: white;
+}
+
+#submitButton:hover {
+    background-color: blanchedalmond;
+}

@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>detail</title>
+        <meta charset="UTF-8">
+        <link href="{% static 'authtest/css/detail_design.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        <div id="title">
+        <div class="bar">
+            <h1>Detail</h1>
+        <table>
+            <tr>
+                <td><a href="{% url 'todo_list' %}">Todo List</a></td>
+                <td><a href="{% url 'edit' todo_id=todo.id %}">Edit</a></td>
+            </tr>
+        </table>
+    </div>
+    </div>
+        <div class="zone">
+        <div class="red_under_bar">
+            <h3>Title:</h3>
+        </div>
+        <p class="content">{{ todo.title }}</p>
+    </div>
+
+    <div class="zone">
+        <div class="red_under_bar">
+            <h3>Due:</h3>
+        </div>
+        <p class="content">{{todo.due_date}}</p>
+    </div>
+
+    <div class="zone">
+        <div class="red_under_bar">
+            <h3>Note:</h3>
+        </div>
+        <p class="content">{{todo.notes}}</p>
+    </div>
+    </body>
+</html>
